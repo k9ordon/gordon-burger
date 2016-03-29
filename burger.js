@@ -5,7 +5,7 @@ $burger.addEventListener("click", function() {
 });
 
 function burgerRender() {
-	if(state.menu) {
+	if(state.menu == MENU_STATE_OPEN || state.menu == MENU_STATE_WILL_OPEN) {
 		$burger.classList.add('burger--off');
 	} else {
 		$burger.classList.remove('burger--off');
