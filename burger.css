@@ -1,0 +1,16 @@
+.burger {
+	position: fixed;
+	top:0;
+	left:0;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 32px;
+
+	transition: top 0.4s;
+}
+
+.burger--off {
+	top: -50px;
+}
