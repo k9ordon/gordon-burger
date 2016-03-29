@@ -5,7 +5,7 @@ function menuOpen() {
 		detail: {
 			type: MENU_OPEN
 		}
-	});
+	}, false, false);
 }
 
 const MENU_DID_OPEN = "MENU_DID_OPEN";
@@ -15,7 +15,7 @@ function menuDidOpen() {
 		detail: {
 			type: MENU_DID_OPEN
 		}
-	});
+	}, false, false);
 }
 
 const MENU_CLOSE = "MENU_CLOSE";
@@ -25,7 +25,7 @@ function menuClose() {
 		detail: {
 			type: MENU_CLOSE
 		}
-	});
+	}, false, false);
 }
 
 const MENU_DID_CLOSE = "MENU_DID_CLOSE";
@@ -35,5 +35,5 @@ function menuDidClose() {
 		detail: {
 			type: MENU_DID_CLOSE
 		}
-	});
+	}, false, false);
 }

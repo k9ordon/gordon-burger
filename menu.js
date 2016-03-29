@@ -8,17 +8,27 @@ $menu_close.addEventListener("click", function() {
 var menuTimeout,
 	menuStateCache;
 
+$menu.addEventListener("animationend", function(e) {
+	console.log("animationend", state.menu, e);
+	if (e.animationName === "menuOpen") {
+		document.dispatchEvent(menuDidOpen());
+	} else if (e.animationName === "menuClose") {
+		document.dispatchEvent(menuDidClose());
+	}
+}, false);
+
 function menuUpdate() {
-	if(state.menu == menuStateCache) return;
+	if (state.menu == menuStateCache) return;
 	else menuStateCache = state.menu;
 
-	// if (menuTimeout) cleanTimeout(menuTimeout);
+	if(state.menu == MENU_STATE_WILL_OPEN || state.menu == MENU_STATE_WILL_CLOSE) {
+		$menu_close.classList.add('menu-close--off');
+	} else {
+		$menu_close.classList.remove('menu-close--off');
+	}
 
 	if (state.menu == MENU_STATE_WILL_OPEN) {
 		$menu.classList.add('menu--willOpen');
-		menuTimeout = setTimeout(function() {
-			document.dispatchEvent(menuDidOpen());
-		},500);
 	} else {
 		$menu.classList.remove('menu--willOpen');
 	}
@@ -31,9 +41,6 @@ function menuUpdate() {
 
 	if (state.menu == MENU_STATE_WILL_CLOSE) {
 		$menu.classList.add('menu--willClose');
-		menuTimeout = setTimeout(function() {
-			document.dispatchEvent(menuDidClose());
-		},500);
 	} else {
 		$menu.classList.remove('menu--willClose');
 	}

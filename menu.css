@@ -1,13 +1,13 @@
 .menu {
 	min-height: 100%;
 	width: 100%;
-	background: gray;
+	background: #1B1B1B;
 	display: none;
 }
 
 @keyframes menuOpen {
 	from {
-		top: -100%;
+		top: -100px;
 		opacity:0;
 	}
 	to {
@@ -23,7 +23,25 @@
 	}
 	to {
 		opacity:0;
-		top: -100%;
+		top: -100px;
+	}
+}
+
+@keyframes menuOpenItem {
+	from {
+		opacity:0;
+	}
+	to {
+		opacity:1;
+	}
+}
+
+@keyframes menuCloseItem {
+	from {
+		opacity:1;
+	}
+	to {
+		opacity:0;
 	}
 }
 
@@ -39,19 +57,40 @@
 
 .menu--willOpen {
 	animation-name: menuOpen;
-	animation-duration: 0.4s;
+	animation-duration: 0.9s;
 	animation-fill-mode: forwards;
 }
+
+/* broke the bem */
+.menu--willOpen .menu-item {
+	opacity:0;
+	animation-name: menuOpenItem;
+	animation-duration: 0.5s;
+	animation-delay: 0.5s;
+	animation-fill-mode: forwards;
+}
+
 .menu--open {
 	/*position: static;*/
 }
+
 .menu--willClose {
 	animation-name: menuClose;
-	animation-duration: 0.4s;
+	animation-duration: 0.9s;
 	animation-fill-mode: forwards;
 }
+
+/* broke the bem, again */
+.menu--willClose .menu-item {
+	opacity:1;
+	animation-name: menuCloseItem;
+	animation-duration: 0.5s;
+	animation-delay: 0.5s;
+	animation-fill-mode: forwards;
+}
+
 .menu--close {
-	/*position: static;*/
+	transition: top 0.4s;
 }
 
 .menu-close {
@@ -63,14 +102,20 @@
 	text-align: center;
 	line-height: 50px;
 	font-size: 32px;
-	transition: top 0.4s;
+	transition: left 0.4s;
 }
+
+.menu-close--off {
+	left: -50px;
+}
+
 .menu-itemList {
 	padding-top: 50px;
 }
 .menu-item {
-	font-size: 24px;
-	color: red;
-	line-height: 50px;
+	display: block;
+	font-size: 32px;
+	color: #FFF;
+	line-height: 75px;
 	text-align: center;
 }
