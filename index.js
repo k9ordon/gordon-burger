@@ -7,6 +7,8 @@ function controllerIndexUpdate() {
 
 	if(state.menu == MENU_STATE_WILL_OPEN) {
 		scrollPosition = document.body.scrollTop;
+	} else if(state.menu == MENU_STATE_OPEN) {
+		window.scrollTo(0, 0);
 	} else if(state.menu == MENU_STATE_WILL_CLOSE) {
 		setTimeout(function() {
 			window.scrollTo(0, scrollPosition);

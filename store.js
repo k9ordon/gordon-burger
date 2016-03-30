@@ -1,4 +1,6 @@
-state = {};
+state = {
+	menu: MENU_STATE_CLOSE
+};
 
 var reducers = function(state, action) {
 	return menuReducer(state, action);

@@ -7,40 +7,40 @@
 
 @keyframes menuOpen {
 	from {
-		top: -100px;
 		opacity:0;
 	}
 	to {
-		top: 0;
 		opacity:1;
 	}
 }
 
 @keyframes menuClose {
 	from {
-		top: 0%;
 		opacity:1;
 	}
 	to {
 		opacity:0;
-		top: -100px;
 	}
 }
 
 @keyframes menuOpenItem {
 	from {
+		top: -20px;
 		opacity:0;
 	}
 	to {
+		top: 0px;
 		opacity:1;
 	}
 }
 
 @keyframes menuCloseItem {
 	from {
+		top: 0px;
 		opacity:1;
 	}
 	to {
+		top: -20px;
 		opacity:0;
 	}
 }
@@ -50,7 +50,7 @@
 }
 
 .menu--willOpen, .menu--willClose {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	z-index: 500;
 }
@@ -58,6 +58,7 @@
 .menu--willOpen {
 	animation-name: menuOpen;
 	animation-duration: 0.9s;
+	animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
 }
 
@@ -65,8 +66,9 @@
 .menu--willOpen .menu-item {
 	opacity:0;
 	animation-name: menuOpenItem;
-	animation-duration: 0.5s;
+	animation-duration: 0.4s;
 	animation-delay: 0.5s;
+	animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
 }
 
@@ -77,15 +79,16 @@
 .menu--willClose {
 	animation-name: menuClose;
 	animation-duration: 0.9s;
+	animation-delay: 0.2s;
+	animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
 }
 
 /* broke the bem, again */
 .menu--willClose .menu-item {
-	opacity:1;
 	animation-name: menuCloseItem;
-	animation-duration: 0.5s;
-	animation-delay: 0.5s;
+	animation-duration: 0.4s;
+	animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
 }
 
@@ -118,4 +121,5 @@
 	color: #FFF;
 	line-height: 75px;
 	text-align: center;
+	position: relative;
 }
