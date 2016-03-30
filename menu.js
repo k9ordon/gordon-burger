@@ -20,7 +20,7 @@ function menuUpdate() {
 	if (state.menu == menuStateCache) return;
 	else menuStateCache = state.menu;
 
-	if(state.menu == MENU_STATE_CLOSE || state.menu == MENU_STATE_WILL_CLOSE || state.menu == MENU_STATE_WILL_CLOSE) {
+	if(state.menu == MENU_STATE_CLOSE || state.menu == MENU_STATE_WILL_CLOSE || state.menu == MENU_STATE_WILL_OPEN) {
 		$menu_close.classList.add('menu-close--off');
 	} else {
 		$menu_close.classList.remove('menu-close--off');
